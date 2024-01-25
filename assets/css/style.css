@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+.login-form {
+    width: 40%;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 5%;
+    text-align: center;
+    height: 70vh;
+    border-radius: 12px;
+}
+
+.login-form h3 {
+    color: #4286F5;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+
+}
+
+.login-form input {
+    width: 60%;
+    height: 10px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    background-color: #DCDCDC;
+    padding: 20px;
+}
+
+input::placeholder {
+    padding: 20px;
+
+}
+
+.login-form button {
+    background-color: yellow;
+    padding: 20px;
+    width: 60%;
+    font-size: 22px;
+    font-weight: bolder;
+    color: green;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.login-form p {
+    text-align: left;
+    padding-left: 10px;
+}
+
+.imagem-principal {
+    background-color: #E5AC43;
+    width: 83%;
+    height: 100vh;
+
+}
+
+.imagem-principal {
+    width: 100%;
+}
+
+.imagem-principal img {
+    width: 100%;
+}
+
+.clinica {
+    position: absolute;
+    text-align: center;
+
+    width: 100%;
+    height: 50vh;
+    margin-top: 10%;
+}
+
+h2 {
+    color: yellow;
+    font-size: 6em;
+}
+
+h2 span {
+    color: green;
+}

@@ -1,0 +1,69 @@
+<?php
+// Inclua a lógica de conexão com o banco de dados aqui
+// Substitua 'seu_servidor', 'seu_usuario', 'sua_senha' e 'seu_banco' pelas informações reais
+
+$mysqli = new mysqli('seu_servidor', 'seu_usuario', 'sua_senha', 'seu_banco');
+
+if ($mysqli->connect_error) {
+    die('Erro de Conexão (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error);
+}
+
+// Verifica se o formulário de login foi enviado
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Verifica se o nome de usuário e a senha correspondem a um usuário válido
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Consulta SQL para verificar o usuário e senha
+    $query = "SELECT * FROM usuarios WHERE user = ? AND senha = ?";
+    $stmt = $mysqli->prepare($query);
+    $stmt->bind_param("ss", $username, $password);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    if ($result->num_rows === 1) {
+        // Login bem-sucedido, redireciona para index.php
+        header('Location: index.php');
+        exit();
+    } else {
+        // Login inválido, exibe uma mensagem de erro
+        $mensagemErro = 'Nome de usuário ou senha incorretos.';
+    }
+
+    $stmt->close();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <title>login</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="login-form">
+            <h3>Receita</h3>
+            <h3>Login</h3>
+            <input type="text" name="user" placeholder="username"><br>
+            <input type="password" name="password" placeholder="password"> <br>
+
+            <button type="button">Login</button>
+            <p>
+                New here? <span>Sing Up</span>
+            </p>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<a href="pages/php/receitas.php"></a>
